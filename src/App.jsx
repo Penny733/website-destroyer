@@ -27,15 +27,46 @@ function App() {
   }, [destroying]);
 
   const rebuild = () => {
-    setDestroying(false);
     setPhase(0);
+    setDestroying(false);
+    setUrl("");
   };
+
+  if (destroying && phase >= 5) {
+    return (
+      <div className="destruction-screen phase-5">
+        <div className="destroyed-screen">
+
+          <div className="skull">
+            💀
+          </div>
+
+          <h1>
+            WEBSITE
+            <span>DESTROYED.</span>
+          </h1>
+
+          <p>{url}</p>
+
+          <div className="progress">
+            <div className="progress-fill"></div>
+          </div>
+
+          <strong>DESTRUCTION: 100%</strong>
+
+          <button onClick={rebuild}>
+            🔄 REBUILD WEBSITE
+          </button>
+
+        </div>
+      </div>
+    );
+  }
 
   if (destroying) {
     return (
       <div className={`destruction-screen phase-${phase}`}>
 
-        {/* FIRE */}
         {phase >= 3 && (
           <div className="fire-container">
             <div className="fire fire-one">🔥</div>
@@ -45,102 +76,65 @@ function App() {
           </div>
         )}
 
-        {/* EXPLOSION */}
         {phase >= 4 && (
           <div className="explosion">
             💥
           </div>
         )}
 
-        {/* BROWSER */}
-        {phase < 5 && (
-          <div className="browser-window">
+        <div className="browser-window">
 
-            <div className="browser-bar">
-              <div className="browser-buttons">
-                <span className="red"></span>
-                <span className="yellow"></span>
-                <span className="green"></span>
-              </div>
-
-              <div className="browser-url">
-                {url}
-              </div>
+          <div className="browser-bar">
+            <div className="browser-buttons">
+              <span className="red"></span>
+              <span className="yellow"></span>
+              <span className="green"></span>
             </div>
 
-            <div className="website-preview">
-
-              <div className="website-header">
-                <div className="logo">
-                  {url.replace(/^https?:\/\//, "").split(".")[0]}
-                </div>
-
-                <div className="nav">
-                  HOME &nbsp;&nbsp; ABOUT &nbsp;&nbsp; CONTACT
-                </div>
-              </div>
-
-              <h2>
-                Welcome to {url.replace(/^https?:\/\//, "")}
-              </h2>
-
-              <p>
-                This perfectly innocent website is about to experience
-                something deeply unnecessary.
-              </p>
-
-              <div className="fake-content">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-
+            <div className="browser-url">
+              {url}
             </div>
           </div>
-        )}
 
-        {/* STATUS */}
-        {phase < 5 && (
-          <div className="destruction-status">
+          <div className="website-preview">
 
-            {phase === 1 && "⚠️ INFILTRATING WEBSITE..."}
-            {phase === 2 && "💻 CORRUPTING EVERYTHING..."}
-            {phase === 3 && "🔥 SETTING WEBSITE ON FIRE..."}
-            {phase === 4 && "💥 DESTROYING..."}
-            
-          </div>
-        )}
+            <div className="website-header">
+              <div className="logo">
+                {url.replace(/^https?:\/\//, "").split(".")[0]}
+              </div>
 
-        {/* FINAL SCREEN */}
-        {phase >= 5 && (
-          <div className="destroyed-screen">
-
-            <div className="skull">
-              💀
+              <div className="nav">
+                HOME &nbsp;&nbsp; ABOUT &nbsp;&nbsp; CONTACT
+              </div>
             </div>
 
-            <h1>
-              WEBSITE
-              <span>DESTROYED.</span>
-            </h1>
+            <h2>
+              Welcome to {url.replace(/^https?:\/\//, "")}
+            </h2>
 
             <p>
-              {url}
+              This perfectly innocent website is about to experience
+              something deeply unnecessary.
             </p>
 
-            <div className="progress">
-              <div className="progress-fill"></div>
+            <div className="fake-content">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
             </div>
 
-            <strong>DESTRUCTION: 100%</strong>
-
-            <button onClick={rebuild}>
-              🔄 REBUILD WEBSITE
-            </button>
-
           </div>
-        )}
+        </div>
+
+        <div className="destruction-status">
+
+          {phase === 1 && "⚠️ INFILTRATING WEBSITE..."}
+          {phase === 2 && "💻 CORRUPTING EVERYTHING..."}
+          {phase === 3 && "🔥 SETTING WEBSITE ON FIRE..."}
+          {phase === 4 && "💥 DESTROYING..."}
+
+        </div>
 
       </div>
     );
