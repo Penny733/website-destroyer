@@ -1,0 +1,571 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #080808;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+/* ========================= */
+/* HOME */
+/* ========================= */
+
+.app {
+  min-height: 100vh;
+  background: #080808;
+  color: white;
+  overflow: hidden;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  opacity: 0.6;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(60px, 11vw, 150px);
+  line-height: 0.82;
+  letter-spacing: -7px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.hero h1 span {
+  display: block;
+  color: #ff2d55;
+  transform: rotate(-2deg);
+}
+
+.subtitle {
+  max-width: 550px;
+  margin: 35px 0;
+  font-size: 18px;
+  color: #aaa;
+}
+
+.destroy-box {
+  width: min(850px, 100%);
+  padding: 8px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 14px;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  background: #0d0d0d;
+  border-radius: 9px;
+  padding: 8px 8px 8px 18px;
+}
+
+.url-prefix {
+  color: #666;
+  font-family: monospace;
+}
+
+input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 17px;
+  padding: 15px 8px;
+}
+
+input::placeholder {
+  color: #444;
+}
+
+button {
+  border: none;
+  background: #ff2d55;
+  color: white;
+  font-weight: 900;
+  padding: 16px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 45, 85, 0.5);
+}
+
+.disclaimer {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #555;
+}
+
+/* ========================= */
+/* DESTRUCTION */
+/* ========================= */
+
+.destruction-screen {
+  min-height: 100vh;
+  background: #050505;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.browser-window {
+  width: min(1000px, 90vw);
+  height: min(620px, 65vh);
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.8);
+  transition: 0.3s;
+}
+
+/* ========================= */
+/* BROWSER */
+/* ========================= */
+
+.browser-bar {
+  height: 55px;
+  background: #202020;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  gap: 25px;
+}
+
+.browser-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.browser-buttons span {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+}
+
+.red {
+  background: #ff5f57;
+}
+
+.yellow {
+  background: #febc2e;
+}
+
+.green {
+  background: #28c840;
+}
+
+.browser-url {
+  flex: 1;
+  background: #111;
+  color: #aaa;
+  padding: 9px 15px;
+  border-radius: 6px;
+  font-family: monospace;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ========================= */
+/* WEBSITE */
+/* ========================= */
+
+.website-preview {
+  height: calc(100% - 55px);
+  color: #111;
+  padding: 55px;
+  overflow: hidden;
+}
+
+.website-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.nav {
+  color: #777;
+  font-size: 13px;
+}
+
+.website-preview h2 {
+  font-size: 45px;
+  margin-top: 70px;
+}
+
+.website-preview p {
+  color: #777;
+  max-width: 600px;
+}
+
+.fake-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.fake-content div {
+  height: 100px;
+  background: #eee;
+  border-radius: 10px;
+}
+
+/* ========================= */
+/* PHASE 1 */
+/* ========================= */
+
+.phase-1 .browser-window {
+  animation: glitch 0.15s infinite;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+
+  25% {
+    transform: translate(4px, -3px);
+  }
+
+  50% {
+    transform: translate(-5px, 4px);
+  }
+
+  75% {
+    transform: translate(3px, 2px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+/* ========================= */
+/* PHASE 2 */
+/* ========================= */
+
+.phase-2 .browser-window {
+  animation: shake 0.08s infinite;
+  transform: rotate(-1deg);
+}
+
+.phase-2 .fake-content div:nth-child(1) {
+  transform: rotate(8deg) translate(-30px, 20px);
+}
+
+.phase-2 .fake-content div:nth-child(2) {
+  transform: rotate(-12deg) translate(60px, -20px);
+}
+
+.phase-2 .fake-content div:nth-child(3) {
+  transform: rotate(15deg) translate(-80px, 30px);
+}
+
+.phase-2 .fake-content div:nth-child(4) {
+  transform: rotate(-20deg) translate(100px, -40px);
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0);
+  }
+
+  25% {
+    transform: translate(8px, -5px) rotate(1deg);
+  }
+
+  50% {
+    transform: translate(-8px, 6px) rotate(-1deg);
+  }
+
+  75% {
+    transform: translate(5px, 5px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+/* ========================= */
+/* FIRE */
+/* ========================= */
+
+.fire-container {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.fire {
+  position: absolute;
+  font-size: 90px;
+  animation: fire 0.4s infinite alternate;
+}
+
+.fire-one {
+  left: 10%;
+  bottom: 15%;
+}
+
+.fire-two {
+  right: 12%;
+  bottom: 20%;
+  animation-delay: 0.1s;
+}
+
+.fire-three {
+  left: 25%;
+  top: 15%;
+  animation-delay: 0.2s;
+}
+
+.fire-four {
+  right: 25%;
+  top: 18%;
+  animation-delay: 0.3s;
+}
+
+@keyframes fire {
+  from {
+    transform: scale(1) rotate(-5deg);
+  }
+
+  to {
+    transform: scale(1.3) rotate(7deg);
+  }
+}
+
+/* ========================= */
+/* EXPLOSION */
+/* ========================= */
+
+.explosion {
+  position: absolute;
+  z-index: 20;
+  font-size: 250px;
+  animation: explode 1.4s forwards;
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  30% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.phase-4 .browser-window {
+  animation: flyApart 1.2s forwards;
+}
+
+@keyframes flyApart {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.2) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+/* ========================= */
+/* STATUS */
+/* ========================= */
+
+.destruction-status {
+  margin-top: 35px;
+  font-size: clamp(25px, 5vw, 60px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  z-index: 10;
+  animation: pulse 0.4s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.04);
+  }
+}
+
+/* ========================= */
+/* DESTROYED */
+/* ========================= */
+
+.destroyed-screen {
+  text-align: center;
+  animation: appear 0.7s forwards;
+}
+
+@keyframes appear {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.skull {
+  font-size: 100px;
+}
+
+.destroyed-screen h1 {
+  font-size: clamp(55px, 10vw, 130px);
+  line-height: 0.8;
+  margin: 20px 0;
+  letter-spacing: -6px;
+}
+
+.destroyed-screen h1 span {
+  display: block;
+  color: #ff2d55;
+}
+
+.destroyed-screen p {
+  color: #777;
+  font-family: monospace;
+  margin: 30px 0;
+}
+
+.progress {
+  width: min(500px, 80vw);
+  height: 12px;
+  background: #222;
+  margin: 25px auto 15px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 100%;
+  background: #ff2d55;
+  animation: fill 1s ease;
+}
+
+@keyframes fill {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.destroyed-screen strong {
+  display: block;
+  margin-bottom: 35px;
+  letter-spacing: 2px;
+}
+
+.destroyed-screen button {
+  background: white;
+  color: black;
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 650px) {
+
+  .hero h1 {
+    letter-spacing: -3px;
+  }
+
+  .input-row {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px;
+  }
+
+  .url-prefix {
+    display: none;
+  }
+
+  input {
+    padding: 15px;
+  }
+
+  .website-preview {
+    padding: 25px;
+  }
+
+  .website-preview h2 {
+    font-size: 28px;
+    margin-top: 40px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .fake-content {
+    grid-template-columns: 1fr;
+  }
+
+  .fire {
+    font-size: 60px;
+  }
+}
